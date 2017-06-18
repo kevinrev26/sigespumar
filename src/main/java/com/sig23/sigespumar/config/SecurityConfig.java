@@ -34,7 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/tactico/**").access("hasAnyRole('TACTICO','ADMIN')")
                 .antMatchers("/estrategico/**").access("hasAnyRole('ESTRATEGICO','ADMIN')")
                 .and()
-                .formLogin();
+                .formLogin()
+                .loginPage("/login");
 
     }
 

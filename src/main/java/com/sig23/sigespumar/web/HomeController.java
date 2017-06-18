@@ -42,5 +42,9 @@ public class HomeController {
         return "redirect:/login?logout";
 
     }
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage(){
+        return "login";
+    }
 
 }
