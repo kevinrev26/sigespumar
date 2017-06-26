@@ -15,24 +15,24 @@
         <div sec:authorize="isAuthenticated()">
             <!-- Dropdown Structure -->
             <ul id="tactico" class="dropdown-content">
-                <li><a href="#!">Materiales de producción</a></li>
-                <li><a href="#!">Mano de obra pagada por juego de sala</a></li>
-                <li><a href="#!">Costo de sala fabricada por órden de producción</a></li>
-                <li><a href="#!">Costo estándar vs costo real</a></li>
-                <li><a href="#!">Producto terminado</a></li>
-                <li><a href="#!">Órdenes liquidadas</a></li>
+                <li><a href="/tactico/reporte">Materiales de producción</a></li>
+                <li><a href="/tactico/reporte2">Mano de obra pagada por juego de sala</a></li>
+                <li><a href="/tactico/reporte3">Costo de sala fabricada por órden de producción</a></li>
+                <li><a href="/tactico/reporte4">Costo estándar vs costo real</a></li>
+                <li><a href="/tactico/reporte5">Producto terminado</a></li>
+                <li><a href="/tactico/reporte6">Órdenes liquidadas</a></li>
             </ul>
             <ul id="estrategico" class="dropdown-content">
-                <li><a href="#!">Costos de salas líquidadas</a></li>
-                <li><a href="#!">Salas que más se producen</a></li>
-                <li><a href="#!">Gastos de producción</a></li>
-                <li><a href="#!">Juegos de sala por línea de producto</a></li>
-                <li><a href="#!">Costo de sala producida por mes</a></li>
+                <li><a href="/estrategico/reporte">Costos de salas líquidadas</a></li>
+                <li><a href="/estrategico/reporte2">Salas que más se producen</a></li>
+                <li><a href="/estrategico/reporte3">Gastos de producción</a></li>
+                <li><a href="/estrategico/reporte4">Juegos de sala por línea de producto</a></li>
+                <li><a href="/estrategico/reporte5">Costo de sala producida por mes</a></li>
             </ul>
 
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo">Logo</a>
+                    <a href="/" class="brand-logo"><img th:src="@{/resources/static/logo.png}"/></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a class="dropdown-button" href="#!" data-activates="tactico">Reportes tácticos<i class="material-icons right">arrow_drop_down</i></a></li>
                         <!-- Dropdown Trigger -->
@@ -46,7 +46,7 @@
 
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">Logo</a>
+                    <a href="/" class="brand-logo"><img th:src="@{/resources/static/logo.png}"/></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a th:href="@{/login}">Entrar</a></li>
 
