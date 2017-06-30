@@ -12,26 +12,27 @@
 <div class="container">
 
     <header th:replace="fragments/navbar :: header"></header>
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card blue-grey">
-                <div class="card-content white-text">
-                    <span class="card-title">Costo de Juego de Sala por tiempo</span>
-                    <p>Se seleccionarán los costos totales de cada juego de sala en el período establecido.</p>
+    <form method="get" th:action="@{/estrategico/reporte5/pdf}">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card blue-grey">
+                    <div class="card-content white-text">
+                        <span class="card-title">Costo de Juego de Sala por tiempo</span>
+                        <p>Se seleccionarán los costos totales de cada juego de sala en el período establecido.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col m6">
-        <label for="inicio">Fecha de inicio</label>
-        <input type="date" class="dob" id="inicio" placeholder="Ingrese fecha de inicio" />
-    </div>
-    <div class="col m6">
-        <label for="fin">Fecha de inicio</label>
-        <input type="date" class="dob" id="fin" placeholder="Ingrese fecha de fin" />
-    </div>
-    <button type="submit" class="waves-effect waves-light btn" value="Enviar">Enviar</button>
-
+        <div class="col m6">
+            <label for="inicio">Fecha de inicio</label>
+            <input type="date" class="dob" id="inicio" name="inicio" placeholder="Ingrese fecha de inicio" />
+        </div>
+        <div class="col m6">
+            <label for="fin">Fecha de inicio</label>
+            <input type="date" class="dob" id="fin" name="fin" placeholder="Ingrese fecha de fin" />
+        </div>
+        <button type="submit" class="waves-effect waves-light btn" value="Enviar">Consultar</button>
+    </form>
 </div>
 
 
