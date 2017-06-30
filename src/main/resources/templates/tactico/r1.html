@@ -12,28 +12,29 @@
 <div class="container">
 
     <header th:replace="fragments/navbar :: header"></header>
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card blue-grey">
-                <div class="card-content white-text">
-                    <span class="card-title">Reporte de consumo de Materiales de Producción</span>
-                    <p>Este reporte se obtiene al seleccionar una fecha acorde a un período de tiempo.</p>
+    <form method="get" th:action="@{/tactico/reporte/pdf}">
+        <div class="row">
+            <div class="col s12 m12">
+                <div> <!--class="card blue-grey"-->
+                    <div class="card-content white-text">
+                        <span class="card-title">Reporte de consumo de Materiales de Producción</span>
+                        <p>Este reporte se obtiene al seleccionar una fecha acorde a un período de tiempo.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col m6">
-        <label for="inicio">Fecha de inicio</label>
-        <input type="date" class="dob" id="inicio" placeholder="Ingrese fecha de inicio" />
-    </div>
-    <div class="col m6">
-        <label for="fin">Fecha de inicio</label>
-        <input type="date" class="dob" id="fin" placeholder="Ingrese fecha de fin" />
-    </div>
-    <button type="submit" class="waves-effect waves-light btn" value="Enviar">Enviar</button>
-
-
+        <div class="col m6">
+            <label for="inicio">Fecha de inicio</label>
+            <input type="date" class="dob" id="inicio" name="inicio" placeholder="Ingrese fecha de inicio" required=""/>
+        </div>
+        <div class="col m6">
+            <label for="fin">Fecha de inicio</label>
+            <input type="date" class="dob" id="fin" name="fin" placeholder="Ingrese fecha de fin" required=""/>
+        </div>
+        <button type="submit" class="waves-effect waves-light btn" value="Enviar">Enviar</button>
+    </form>
 </div>
+
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
