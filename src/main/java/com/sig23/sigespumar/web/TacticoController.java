@@ -1,6 +1,7 @@
 package com.sig23.sigespumar.web;
 
 import com.sig23.sigespumar.modelos.Reporte1;
+import com.sig23.sigespumar.repositorios.RepositorioCuatro;
 import com.sig23.sigespumar.repositorios.RepositorioDos;
 import com.sig23.sigespumar.repositorios.RepositorioUno;
 //import org.apache.catalina.core.ApplicationContext;
@@ -36,6 +37,8 @@ public class TacticoController {
     RepositorioUno repositorioUno;
     @Autowired
     RepositorioDos repositorioDos;
+    @Autowired
+    RepositorioCuatro repositorioCuatro;
     @Autowired
     private ApplicationContext appContext;
 
@@ -89,4 +92,17 @@ public class TacticoController {
         return new ModelAndView(view,params);
 
     }
+
+    @RequestMapping(value = "/reporte4/pdf", method = RequestMethod.GET)
+    public ModelAndView getReporte4(@RequestParam("codSal") String codigoSala){
+
+        JasperReportsPdfView view = new JasperReportsPdfView();
+        view.setUrl("classpath:/reportes/reporte4.jrxml");
+        view.setApplicationContext(appContext);
+        Map<String, Object> params = new HashMap<>();
+        params.put("datasource", repositorioCuatro.findBycodSala(codigoSala));
+        return new ModelAndView(view,params);
+
+    }
+
 }

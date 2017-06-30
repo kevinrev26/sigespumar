@@ -17,32 +17,26 @@
             <div class="card blue-grey">
                 <div class="card-content white-text">
                     <span class="card-title">Coste Estándar vs Costo Real de cada juego</span>
-                    <p>Se debe seleccionar el número juego de sala para conocer el importe, ademas de las fechas</p>
+                    <p>Se debe seleccionar el número juego de sala para conocer el importe</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="input-field col s12">
-        <select>
-            <option value="" disabled selected>Seleccione una por favor</option>
-            <option value="1">Qatar 25</option>
-            <option value="2">Mediterraneo 15</option>
-            <option value="3">Venecia 85</option>
-        </select>
-        <label>Juego de Sala</label>
-    </div>
-
-    <div class="col m6">
-        <label for="inicio">Fecha de inicio</label>
-        <input type="date" class="dob" id="inicio" placeholder="Ingrese fecha de inicio" />
-    </div>
-    <div class="col m6">
-        <label for="fin">Fecha de fin</label>
-        <input type="date" class="dob" id="fin" placeholder="Ingrese fecha de fin" />
-    </div>
-
-    <button type="submit" class="waves-effect waves-light btn" value="Enviar">Consultar</button>
+    <form method="get" th:action="@{/tactico/reporte4/pdf}">
+        <div class="input-field col s12">
+            <select name="codSal" required="">
+                <option th:value="CNC45">Sala Concerto</option>
+                <option th:value="DUB11">Sala Dubai</option>
+                <option th:value="EJC25">Sala Ejecutivo</option>
+                <option th:value="BBAO5">Sala Bilbao</option>
+                <option th:value="ISTM8">Sala Estambul</option>
+                <option th:value="CHG07">Sala Chicago</option>
+                <option th:value="CER4">Sala Ceren</option>
+            </select>
+            <label>Juego de Sala</label>
+        </div>
+        <button type="submit" class="waves-effect waves-light btn">Consultar</button>
+    </form>
 
 </div>
 
