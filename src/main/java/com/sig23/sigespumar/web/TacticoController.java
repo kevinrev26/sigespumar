@@ -1,6 +1,7 @@
 package com.sig23.sigespumar.web;
 
 import com.sig23.sigespumar.modelos.Reporte1;
+import com.sig23.sigespumar.repositorios.RepositorioCinco;
 import com.sig23.sigespumar.repositorios.RepositorioCuatro;
 import com.sig23.sigespumar.repositorios.RepositorioDos;
 import com.sig23.sigespumar.repositorios.RepositorioUno;
@@ -39,6 +40,8 @@ public class TacticoController {
     RepositorioDos repositorioDos;
     @Autowired
     RepositorioCuatro repositorioCuatro;
+    @Autowired
+    RepositorioCinco repositorioCinco;
     @Autowired
     private ApplicationContext appContext;
 
@@ -104,5 +107,30 @@ public class TacticoController {
         return new ModelAndView(view,params);
 
     }
+
+    @RequestMapping(value = "/reporte5/pdf", method = RequestMethod.GET)
+    public ModelAndView getReporte5(@RequestParam("inicio") Date inicio, @RequestParam("fin") Date fin){
+        //return repositorioUno.findAll();
+        JasperReportsPdfView view = new JasperReportsPdfView();
+        view.setUrl("classpath:/reportes/reporte5.jrxml");
+        view.setApplicationContext(appContext);
+        Map<String,Object> params = new HashMap<>();
+        //JRDataSource jrDataSource = new JRBeanCollectionDataSource(repositorioUno.findAll());
+        params.put("datasource", repositorioCinco.findByfechaBetween(inicio,fin));
+        return new ModelAndView(view,params);
+    }
+
+    @RequestMapping(value = "/reporte6/pdf", method = RequestMethod.GET)
+    public ModelAndView getReporte6(@RequestParam("inicio") Date inicio, @RequestParam("fin") Date fin){
+        //return repositorioUno.findAll();
+        JasperReportsPdfView view = new JasperReportsPdfView();
+        view.setUrl("classpath:/reportes/reporte6.jrxml");
+        view.setApplicationContext(appContext);
+        Map<String,Object> params = new HashMap<>();
+        //JRDataSource jrDataSource = new JRBeanCollectionDataSource(repositorioUno.findAll());
+        params.put("datasource", repositorioCinco.findByfechaBetween(inicio,fin));
+        return new ModelAndView(view,params);
+    }
+
 
 }
