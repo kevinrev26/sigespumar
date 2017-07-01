@@ -26,6 +26,70 @@
         <fieldDescription><![CDATA[fecha]]></fieldDescription>
     </field>
 
+    <title>
+        <band height = "50">
+
+            <textField>
+                <reportElement x = "100" y = "16" width = "100" height = "20"/>
+                <textElement/>
+
+                <textFieldExpression>
+                    <![CDATA["Costo Salas Liquidadas"]]>
+                </textFieldExpression>
+
+            </textField>
+
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height = "23">
+
+            <staticText>
+                <reportElement mode = "Opaque" x = "0" y = "3" width = "535"
+                               height = "15" backcolor = "#70A9A9" />
+
+                <box>
+                    <bottomPen lineWidth = "1.0" lineColor = "#CCCCCC" />
+                </box>
+
+                <textElement />
+                <text><![CDATA[Codigo de Sala]]> </text>
+            </staticText>
+
+            <staticText>
+                <reportElement x = "50" y = "3" width = "121" height = "15" />
+
+                <textElement textAlignment = "Center" verticalAlignment = "Middle">
+                    <font isBold = "true" />
+                </textElement>
+
+                <text><![CDATA[Nombre Sala]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x = "100" y = "3" width = "121" height = "15" />
+
+                <textElement textAlignment = "Center" verticalAlignment = "Middle">
+                    <font isBold = "true" />
+                </textElement>
+
+                <text><![CDATA[Costo Total]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x = "150" y = "3" width = "121" height = "15" />
+
+                <textElement textAlignment = "Center" verticalAlignment = "Middle">
+                    <font isBold = "true" />
+                </textElement>
+
+                <text><![CDATA[Fecha]]></text>
+            </staticText>
+
+        </band>
+    </columnHeader>
+
     <detail>
         <band height="61" splitType="Stretch">
 
