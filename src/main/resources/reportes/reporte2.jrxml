@@ -34,7 +34,7 @@
                 <textElement/>
 
                 <textFieldExpression>
-                    <![CDATA["Mano de obra Pagada por Juego de Sala"]]>
+                    <![CDATA["Mano de obra pagada por juego de sala"]]>
                 </textFieldExpression>
 
             </textField>
@@ -43,7 +43,7 @@
     </title>
 
     <columnHeader>
-        <band height = "23">
+        <band height = "61">
 
             <staticText>
                 <reportElement mode = "Opaque" x = "0" y = "3" width = "535"
