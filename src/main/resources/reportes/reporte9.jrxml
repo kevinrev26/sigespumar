@@ -42,7 +42,7 @@
                 <textElement/>
 
                 <textFieldExpression>
-                    <![CDATA["Gastos de Produccion]]>
+                    <![CDATA["Gastos de Produccion"]]>
                 </textFieldExpression>
 
             </textField>
