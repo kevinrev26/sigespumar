@@ -1,6 +1,7 @@
 package com.sig23.sigespumar.web;
 
 import com.sig23.sigespumar.repositorios.RepositorioDiez;
+import com.sig23.sigespumar.repositorios.RepositorioNueve;
 import com.sig23.sigespumar.repositorios.RepositorioOcho;
 import com.sig23.sigespumar.repositorios.RepositorioOnce;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,8 @@ public class EstrategicoController {
     private RepositorioOnce repositorioOnce;
     @Autowired
     private RepositorioOcho repositorioOcho;
+    @Autowired
+    private RepositorioNueve repositorioNueve;
     @Autowired
     private RepositorioDiez repositorioDiez;
 
@@ -84,6 +87,17 @@ public class EstrategicoController {
         view.setApplicationContext(appContext);
         Map<String,Object> params = new HashMap<>();
         params.put("datasource", repositorioOcho.findBytotalProduccionGreaterThanEqual(total));
+        return new ModelAndView(view, params);
+    }
+
+    @RequestMapping(value = "/reporte3/pdf", method = RequestMethod.GET)
+    public ModelAndView getReporte2(@RequestParam("total") Double total){
+
+        JasperReportsPdfView view = new JasperReportsPdfView();
+        view.setUrl("classpath:/reportes/reporte9.jrxml");
+        view.setApplicationContext(appContext);
+        Map<String,Object> params = new HashMap<>();
+        params.put("datasource", repositorioNueve.findBytotalGreaterThan(total));
         return new ModelAndView(view, params);
     }
 

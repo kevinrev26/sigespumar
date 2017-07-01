@@ -1,10 +1,7 @@
 package com.sig23.sigespumar.web;
 
 import com.sig23.sigespumar.modelos.Reporte1;
-import com.sig23.sigespumar.repositorios.RepositorioCinco;
-import com.sig23.sigespumar.repositorios.RepositorioCuatro;
-import com.sig23.sigespumar.repositorios.RepositorioDos;
-import com.sig23.sigespumar.repositorios.RepositorioUno;
+import com.sig23.sigespumar.repositorios.*;
 //import org.apache.catalina.core.ApplicationContext;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -38,6 +35,8 @@ public class TacticoController {
     RepositorioUno repositorioUno;
     @Autowired
     RepositorioDos repositorioDos;
+    @Autowired
+    RepositorioTres repositorioTres;
     @Autowired
     RepositorioCuatro repositorioCuatro;
     @Autowired
@@ -92,6 +91,20 @@ public class TacticoController {
         view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
         params.put("datasource",repositorioDos.findBycodSal(codigoSala));
+        return new ModelAndView(view,params);
+
+    }
+
+    @RequestMapping(value = "/reporte3/pdf", method = RequestMethod.GET)
+    public ModelAndView getReporte3(@RequestParam("inicio") String inicio, @RequestParam("fin") String fin){
+
+        JasperReportsPdfView view = new JasperReportsPdfView();
+        view.setUrl("classpath:/reportes/reporte3.jrxml");
+        view.setApplicationContext(appContext);
+        Map<String, Object> params = new HashMap<>();
+        inicio = "ORD" + inicio;
+        fin = "ORD" + fin;
+        params.put("datasource",repositorioTres.findBycodOrdenBetween(inicio, fin));
         return new ModelAndView(view,params);
 
     }
