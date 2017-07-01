@@ -1,5 +1,6 @@
 package com.sig23.sigespumar.web;
 
+import com.sig23.sigespumar.repositorios.RepositorioDiez;
 import com.sig23.sigespumar.repositorios.RepositorioOcho;
 import com.sig23.sigespumar.repositorios.RepositorioOnce;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,8 @@ public class EstrategicoController {
     private RepositorioOnce repositorioOnce;
     @Autowired
     private RepositorioOcho repositorioOcho;
+    @Autowired
+    private RepositorioDiez repositorioDiez;
 
     @RequestMapping(value = "/reporte", method = RequestMethod.GET)
     public String reporte1() {
@@ -84,6 +87,18 @@ public class EstrategicoController {
         return new ModelAndView(view, params);
     }
 
+
+    @RequestMapping(value = "/reporte4/pdf", method = RequestMethod.GET)
+    public ModelAndView getReporte4(@RequestParam("inicio") Date inicio, @RequestParam("fin") Date fin) {
+
+        JasperReportsPdfView view = new JasperReportsPdfView();
+        view.setUrl("classpath:/reportes/reporte10.jrxml");
+        view.setApplicationContext(appContext);
+        Map<String, Object> params = new HashMap<>();
+        params.put("datasource", repositorioDiez.findByfechaBetween(inicio,fin));
+        return new ModelAndView(view, params);
+
+    }
 
     @RequestMapping(value = "/reporte5/pdf", method = RequestMethod.GET)
     public ModelAndView getReporte5(@RequestParam("inicio") Date inicio, @RequestParam("fin") Date fin) {

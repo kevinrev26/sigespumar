@@ -22,15 +22,17 @@
             </div>
         </div>
     </div>
-    <div class="col m6">
-        <label for="inicio">Fecha de inicio</label>
-        <input type="date" class="dob" id="inicio" placeholder="Ingrese fecha de inicio" />
-    </div>
-    <div class="col m6">
-        <label for="fin">Fecha de inicio</label>
-        <input type="date" class="dob" id="fin" placeholder="Ingrese fecha de fin" />
-    </div>
-    <button type="submit" class="waves-effect waves-light btn" value="Enviar">Enviar</button>
+    <form method="get" th:action="@{/estrategico/reporte4/pdf}">
+        <div class="col m6">
+            <label for="inicio">Fecha de inicio</label>
+            <input type="date" class="dob" id="inicio" name="inicio" placeholder="Ingrese fecha de inicio" />
+        </div>
+        <div class="col m6">
+            <label for="fin">Fecha de inicio</label>
+            <input type="date" class="dob" id="fin" name="fin" placeholder="Ingrese fecha de fin" />
+        </div>
+        <button type="submit" class="waves-effect waves-light btn" value="Enviar">Enviar</button>
+    </form>
 
 </div>
 
