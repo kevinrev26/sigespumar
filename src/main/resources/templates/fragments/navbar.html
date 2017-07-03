@@ -7,6 +7,19 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        #img-logo {
+            height: 100vh;
+            width: 100%;
+        }
+
+        #img-logo2 {
+            height: 100vh;
+            width: 100%;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -30,9 +43,9 @@
                 <li><a href="/estrategico/reporte5">Costo de sala producida por mes</a></li>
             </ul>
 
-            <nav class="blue lighten-1">
+            <nav class="blue darken-1">
                 <div class="nav-wrapper">
-                    <a href="/" class="brand-logo">Espumas Artificiales</a>
+                    <a href="/" class="brand-logo"><img  id="img-logo" th:src="@{/images/logo.png}"/></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a class="dropdown-button" href="#!" data-activates="tactico">Reportes tácticos<i class="material-icons right">arrow_drop_down</i></a></li>
                         <!-- Dropdown Trigger -->
@@ -45,8 +58,8 @@
         <div sec:authorize="isAnonymous()">
 
             <nav>
-                <div class="nav-wrapper">
-                    <a href="/" class="brand-logo"><img th:src="@{/resources/static/logo.png}"/></a>
+                <div class="nav-wrapper blue darken-1">
+                    <a href="/" id="img-logo2" class="brand-logo"><img th:src="@{/images/logo.png}"/></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a th:href="@{/login}">Entrar</a></li>
 

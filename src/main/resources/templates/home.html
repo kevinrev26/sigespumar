@@ -12,35 +12,39 @@
 <div class="container">
 
 <header th:replace="fragments/navbar :: header"></header>
+
+
+    <div class="carousel carousel-slider">
+        <a class="carousel-item" ><img th:src="@{/images/01.jpg}" /></a>
+        <a class="carousel-item" ><img th:src="@{/images/02.jpg}" /></a>
+        <a class="carousel-item" ><img th:src="@{/images/03.jpg}" /></a>
+        <a class="carousel-item" ><img th:src="@{/images/04.jpg}" /></a>
+    </div>
+
+
     <div class="row">
-        <div class="col s12 m7">
+        <div class="col s12 m12">
             <div class="card">
                 <div class="card-image">
-                    <img th:src="@{/resources/static/logo.png}"/>
+                    <img th:src="@{/images/05.jpg}"/>
                     <span class="card-title">Sistema de información Gerencial</span>
                 </div>
                 <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
+                    <p>Este sistema de información gerencial gestiona y apoya a las tomas de decisiones
+                    en la fabricación de Juegos de Sala en la empresa Espumas Artificiales SA de CV.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col s12 m6">
-            <div class="card blue-grey darken-1">
+        <div class="col s12 m12">
+            <div class="card blue darken 4">
                 <div class="card-content white-text">
-                    <span class="card-title">Card Title</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                    <a href="#">This is a link</a>
+                    <span class="card-title">Espumar</span>
+                    <p>Todos los productos que se fabrican son productos afines a la industria del poliuretano
+                        ya que la base principal de todos ellos es la misma esponja que fabricamos en diferentes
+                        calidades y propiedades.</p>
                 </div>
             </div>
         </div>
@@ -52,5 +56,9 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script>
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
+
+</script>
 </body>
 </html>
