@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -74,6 +77,10 @@ public class EstrategicoController {
         view.setUrl("classpath:/reportes/reporte7.jrxml");
         view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Costo Salas liquidadas");
+        params.put("Subtitulo", "Mayor o igual a: " + costoTotal);
         params.put("datasource", repositorioOnce.findBycostoTotalGreaterThanEqual(costoTotal));
         return new ModelAndView(view, params);
 
@@ -86,6 +93,10 @@ public class EstrategicoController {
         view.setUrl("classpath:/reportes/reporte8.jrxml");
         view.setApplicationContext(appContext);
         Map<String,Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Numero de produccion");
+        params.put("Subtitulo", "Mayor o igual a: " + total);
         params.put("datasource", repositorioOcho.findBytotalProduccionGreaterThanEqual(total));
         return new ModelAndView(view, params);
     }
@@ -97,6 +108,10 @@ public class EstrategicoController {
         view.setUrl("classpath:/reportes/reporte9.jrxml");
         view.setApplicationContext(appContext);
         Map<String,Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Gasto producción");
+        params.put("Subtitulo", "Costo total mayor o igual a: " + total);
         params.put("datasource", repositorioNueve.findBytotalGreaterThan(total));
         return new ModelAndView(view, params);
     }
@@ -109,6 +124,12 @@ public class EstrategicoController {
         view.setUrl("classpath:/reportes/reporte10.jrxml");
         view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Linea de producto");
+        String subtitulo = "Periodo: " + " De " + df.format(inicio) + " hasta: " + df.format(fin);
+        params.put("subtitulo", subtitulo);
+        ///params.put("emsion", );
         params.put("datasource", repositorioDiez.findByfechaBetween(inicio,fin));
         return new ModelAndView(view, params);
 
@@ -121,6 +142,11 @@ public class EstrategicoController {
         view.setUrl("classpath:/reportes/reporte11.jrxml");
         view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Produccion por tiempo");
+        String subtitulo = "Periodo: " + " De " + df.format(inicio) + " hasta: " + df.format(fin);
+        params.put("subtitulo", subtitulo);
         params.put("datasource", repositorioOnce.findByfechaBetween(inicio,fin));
         return new ModelAndView(view, params);
 

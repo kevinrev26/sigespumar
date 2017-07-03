@@ -10,6 +10,10 @@
               columnWidth="555" leftMargin="20" rightMargin="20"
               topMargin="20" bottomMargin="20">
 
+    <parameter name = "empresa" class = "java.lang.String"/>
+    <parameter name = "titulo" class = "java.lang.String"/>
+    <parameter name="subtitulo" class="java.lang.String" />
+
     <field name="codLinea" class="java.lang.String">
         <fieldDescription><![CDATA[codLinea]]></fieldDescription>
     </field>
@@ -39,14 +43,47 @@
     </field>
 
     <title>
-        <band height = "50">
+        <band height = "70">
 
-            <textField>
-                <reportElement x = "100" y = "16" width = "100" height = "20"/>
-                <textElement/>
+            <line>
+                <reportElement x = "0" y = "0" width = "515" height = "1"/>
+            </line>
 
-                <textFieldExpression>
-                    <![CDATA["Juego de Sala por Linea de Producto"]]>
+            <textField isBlankWhenNull = "true" bookmarkLevel = "1">
+                <reportElement x = "0" y = "10" width = "515" height = "30"/>
+
+                <textElement textAlignment = "Center">
+                    <font size = "22"/>
+                </textElement>
+
+                <textFieldExpression class = "java.lang.String">
+                    <![CDATA[$P{empresa}]]>
+                </textFieldExpression>
+
+                <anchorNameExpression><![CDATA["Title"]]></anchorNameExpression>
+            </textField>
+
+            <textField isBlankWhenNull = "true">
+                <reportElement  x = "0" y = "30" width = "515" height = "20"/>
+
+                <textElement textAlignment = "Center">
+                    <font size = "15"/>
+                </textElement>
+
+                <textFieldExpression class = "java.lang.String">
+                    <![CDATA[$P{titulo}]]>
+                </textFieldExpression>
+
+            </textField>
+            <textField isBlankWhenNull = "true">
+                <reportElement  x = "0" y = "45" width = "515" height = "20"/>
+
+                <textElement textAlignment = "Center">
+                    <font size = "10"/>
+                </textElement>
+
+                <textFieldExpression class = "java.lang.String">
+                    <![CDATA[$P{subtitulo}]]>
                 </textFieldExpression>
 
             </textField>
@@ -70,23 +107,13 @@
             </staticText>
 
             <staticText>
-                <reportElement x = "50" y = "3" width = "121" height = "15" />
+                <reportElement x = "75" y = "3" width = "121" height = "15" />
 
                 <textElement textAlignment = "Center" verticalAlignment = "Middle">
                     <font isBold = "true" />
                 </textElement>
 
                 <text><![CDATA[Nombre Sala]]></text>
-            </staticText>
-
-            <staticText>
-                <reportElement x = "100" y = "3" width = "121" height = "15" />
-
-                <textElement textAlignment = "Center" verticalAlignment = "Middle">
-                    <font isBold = "true" />
-                </textElement>
-
-                <text><![CDATA[Unidades Producidas]]></text>
             </staticText>
 
             <staticText>
@@ -100,7 +127,7 @@
             </staticText>
 
             <staticText>
-                <reportElement x = "200" y = "3" width = "121" height = "15" />
+                <reportElement x = "225" y = "3" width = "121" height = "15" />
 
                 <textElement textAlignment = "Center" verticalAlignment = "Middle">
                     <font isBold = "true" />
@@ -110,7 +137,7 @@
             </staticText>
 
             <staticText>
-                <reportElement x = "250" y = "3" width = "136" height = "15" />
+                <reportElement x = "280" y = "3" width = "136" height = "15" />
 
                 <textElement textAlignment = "Center" verticalAlignment = "Middle">
                     <font isBold = "true" />
@@ -120,13 +147,23 @@
             </staticText>
 
             <staticText>
-                <reportElement x = "300" y = "3" width = "136" height = "15" />
+                <reportElement x = "350" y = "3" width = "136" height = "15" />
 
                 <textElement textAlignment = "Center" verticalAlignment = "Middle">
                     <font isBold = "true" />
                 </textElement>
 
                 <text><![CDATA[Fecha]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x = "435" y = "3" width = "121" height = "15" />
+
+                <textElement textAlignment = "Center" verticalAlignment = "Middle">
+                    <font isBold = "true" />
+                </textElement>
+
+                <text><![CDATA[U Producidas]]></text>
             </staticText>
 
         </band>
@@ -156,7 +193,7 @@
             </textField>
 
             <textField>
-                <reportElement x="125" y="0" width="100" height="15" />
+                <reportElement x="150" y="0" width="100" height="15" />
 
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
 
@@ -166,7 +203,7 @@
             </textField>
 
             <textField>
-                <reportElement x="175" y="0" width="100" height="15" />
+                <reportElement x="225" y="0" width="100" height="15" />
 
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
 
@@ -176,7 +213,7 @@
             </textField>
 
             <textField>
-                <reportElement x="225" y="0" width="100" height="15"/>
+                <reportElement x="300" y="0" width="100" height="15"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
 
                 <textFieldExpression class="java.lang.Double">
@@ -185,7 +222,7 @@
             </textField>
 
             <textField pattern="dd-MMMM-YYYY">
-                <reportElement x="275" y="0" width="100" height="15"/>
+                <reportElement x="375" y="0" width="100" height="15"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
 
                 <textFieldExpression class="java.util.Date">
@@ -194,7 +231,7 @@
             </textField>
 
             <textField>
-                <reportElement x="320" y="0" width="100" height="15" />
+                <reportElement x="450" y="0" width="100" height="15" />
 
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
 
