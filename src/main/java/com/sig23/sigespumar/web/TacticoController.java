@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by kevin on 06-17-17.
@@ -78,7 +77,15 @@ public class TacticoController {
         view.setUrl("classpath:/reportes/reporte1.jrxml");
         view.setApplicationContext(appContext);
         Map<String,Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+
         //JRDataSource jrDataSource = new JRBeanCollectionDataSource(repositorioUno.findAll());
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Consumo de materiales de producción");
+        String subtitulo = "Periodo: " + " De" + df.format(inicio) + " hasta: " + df.format(fin);
+        params.put("subtitulo", subtitulo);
+        ///params.put("emsion", );
         params.put("datasource", repositorioUno.findByfechaOrdenBetween(inicio,fin));
         return new ModelAndView(view,params);
     }
@@ -90,6 +97,10 @@ public class TacticoController {
         view.setUrl("classpath:/reportes/reporte2.jrxml");
         view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Mano de obra pagada por juego de sala");
+        params.put("Subtitulo", codigoSala);
         params.put("datasource",repositorioDos.findBycodSal(codigoSala));
         return new ModelAndView(view,params);
 
@@ -102,8 +113,13 @@ public class TacticoController {
         view.setUrl("classpath:/reportes/reporte3.jrxml");
         view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         inicio = "ORD" + inicio;
         fin = "ORD" + fin;
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Costo de Sala por Orden de producción");
+        String subtitulo = "Ordenes, " + " De: " + inicio + " hasta: " + fin;
+        params.put("subtitulo", subtitulo);
         params.put("datasource",repositorioTres.findBycodOrdenBetween(inicio, fin));
         return new ModelAndView(view,params);
 
@@ -116,6 +132,10 @@ public class TacticoController {
         view.setUrl("classpath:/reportes/reporte4.jrxml");
         view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Costo Estandar vs Costo Real");
+        params.put("Subtitulo", codigoSala);
         params.put("datasource", repositorioCuatro.findBycodSala(codigoSala));
         return new ModelAndView(view,params);
 
@@ -128,7 +148,11 @@ public class TacticoController {
         view.setUrl("classpath:/reportes/reporte5.jrxml");
         view.setApplicationContext(appContext);
         Map<String,Object> params = new HashMap<>();
-        //JRDataSource jrDataSource = new JRBeanCollectionDataSource(repositorioUno.findAll());
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Producto Terminado");
+        String subtitulo = "Periodo: " + " De" + df.format(inicio) + " hasta: " + df.format(fin);
+        params.put("subtitulo", subtitulo);
         params.put("datasource", repositorioCinco.findByfechaBetween(inicio,fin));
         return new ModelAndView(view,params);
     }
@@ -140,7 +164,11 @@ public class TacticoController {
         view.setUrl("classpath:/reportes/reporte6.jrxml");
         view.setApplicationContext(appContext);
         Map<String,Object> params = new HashMap<>();
-        //JRDataSource jrDataSource = new JRBeanCollectionDataSource(repositorioUno.findAll());
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        params.put("empresa", "ESPUMAR S.A. de C.V. " + df.format(Calendar.getInstance().getTime()));
+        params.put("titulo", "Ordenes liquidadas");
+        String subtitulo = "Periodo: " + " De" + df.format(inicio) + " hasta: " + df.format(fin);
+        params.put("subtitulo", subtitulo);
         params.put("datasource", repositorioCinco.findByfechaBetween(inicio,fin));
         return new ModelAndView(view,params);
     }
